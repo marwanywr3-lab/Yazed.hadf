@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مركز دراسات وأبحاث ذبات يزيد</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --accent: #f59e0b;
+      --danger: #ef4444;
+      --ice: #38bdf8;
+      --text: #f8fafc;
+      --subtext: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Alexandria', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 650px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .header-card {
+      background: var(--card-bg);
+      border: 2px solid #334155;
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .badge {
+      background: var(--danger);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      display: inline-block;
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+    }
+
+    p.subtitle {
+      color: var(--subtext);
+      font-size: 0.95rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+
+    .card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent);
+    }
+
+    /* عداد الذبات التفاعلي */
+    .cringe-counter-box {
+      background: #0b1120;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .counter-display {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--danger);
+      line-height: 1;
+      margin: 0.5rem 0;
+    }
+
+    .counter-label {
+      font-size: 0.9rem;
+      color: var(--subtext);
+    }
+
+    .counter-status {
+      margin-top: 0.8rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--ice);
+      min-height: 1.5rem;
+    }
+
+    .btn-log-joke {
+      width: 100%;
+      background: var(--danger);
+      color: white;
+      border: none;
+      padding: 0.85rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 0.8rem;
+      transition: transform 0.1s ease;
+    }
+
+    .btn-log-joke:active {
+      transform: scale(0.98);
+    }
+
+    /* مقاييس برودة الذبات */
+    .stat-bar {
+      margin-bottom: 1rem;
+    }
+
+    .stat-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .progress-bg {
+      background: #334155;
+      height: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--ice);
+      border-radius: 5px;
+    }
+
+    /* زر الهروب */
+    .escape-box {
+      height: 160px;
+      position: relative;
+      background: #0b1120;
+      border-radius: 12px;
+      border: 1px dashed #475569;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .btn-run {
+      position: absolute;
+      background: var(--danger);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: top 0.15s ease, left 0.15s ease;
+      user-select: none;
+    }
+
+    /* مولد الأعذار */
+    .excuse-box {
+      background: #0b1120;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--ice);
+      border: 1px solid #1e293b;
+      margin-bottom: 1rem;
+    }
+
+    .btn-action {
+      width: 100%;
+      background: var(--accent);
+      color: #0f172a;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .btn-action:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header-card">
+      <span class="badge">مرصد الطقس البارد</span>
+      <h1>تقرير الحالة الطارئة: ذبات يزيد</h1>
+      <p class="subtitle">تم إنشاء هذا الموقع لتوثيق الجفاف التام والهبوط الحاد في درجات حرارة الجلسة بسبب ذبات يزيد.</p>
+    </div>
+
+    <!-- رادار وعداد الذبات الخايسة -->
+    <div class="card">
+      <h2>🧊 رادار وعداد الذبات الخايسة المباشر</h2>
+      
+      <div class="cringe-counter-box">
+        <span class="counter-label">إجمالي الذبات الباردة اليوم</span>
+        <div class="counter-display" id="jokeCount">0</div>
+        <div class="counter-status" id="weatherAlert">الوضع حالياً: الجو مستقر ودافي</div>
+        <button class="btn-log-joke" onclick="registerCringeJoke()">سجل ذبة خايسة أطلقها يزيد 🥶</button>
+      </div>
+
+      <div class="stat-bar">
+        <div class="stat-label">
+          <span>مستوى الصمت المحرج بعد الذبة</span>
+          <span style="color: var(--danger);">100%</span>
+        </div>
+        <div class="progress-bg">
+          <div class="progress-fill" style="width: 100%; background: var(--danger);"></div>
+        </div>
+      </div>
+
+      <div class="stat-bar">
+        <div class="stat-label">
+          <span>احتمالية إن أحد يبتسم مجاملة</span>
+          <span style="color: var(--subtext);">1.2%</span>
+        </div>
+        <div class="progress-bg">
+          <div class="progress-fill" style="width: 1.2%;"></div>
+        </div>
+      </div>
+
+      <div class="stat-bar">
+        <div class="stat-label">
+          <span>هبوط درجة حرارة الغرفة (موجة صقيع)</span>
+          <span style="color: var(--ice);">-50° مئوية</span>
+        </div>
+        <div class="progress-bg">
+          <div class="progress-fill" style="width: 95%; background: var(--ice);"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- زر الاعتراف الهارب -->
+    <div class="card">
+      <h2>🎯 اعتراف رسمي</h2>
+      <p style="color: var(--subtext); font-size: 0.85rem; margin-bottom: 0.8rem;">
+        إذا كنت أنت يزيد، اضغط الزر بالأسفل للاعتراف بأن ذباتك تحتاج ترخيص وتدخل سريع:
+      </p>
+      <div class="escape-box" id="arena">
+        <button class="btn-run" id="runawayBtn">أنا اعترف إني أبرد واحد</button>
+      </div>
+    </div>
+
+    <!-- مولد الأعذار -->
+    <div class="card">
+      <h2>🎲 مولد أعذار يزيد السريعة بعد ما تنكسر ذبته</h2>
+      <div class="excuse-box" id="excuseText">
+        اضغط الزر لمعرفة ترقيعة يزيد بعد ما تصمت الجلسة
+      </div>
+      <button class="btn-action" onclick="generateExcuse()">توليد ترقيعة جديدة</button>
+    </div>
+  </div>
+
+  <script>
+    // عداد الذبات وتحديث الحالة
+    let count = 0;
+    const countDisplay = document.getElementById('jokeCount');
+    const alertDisplay = document.getElementById('weatherAlert');
+
+    const statuses = [
+      "الوضع حالياً: بدت تهب رياح قطبية خفيفة ❄️",
+      "تحذير: تساقط ثلوج وجفاف ملحوظ في الغرفة ☃️",
+      "حالة طوارئ: تجمد الحاضرين وسكوت جماعي قاتل 🧊",
+      "كارثة مناخية: دخول العصر الجليدي رسميًا بسبب يزيد 🥶"
+    ];
+
+    function registerCringeJoke() {
+      count++;
+      countDisplay.innerText = count;
+
+      if (count === 1) alertDisplay.innerText = statuses[0];
+      else if (count <= 3) alertDisplay.innerText = statuses[1];
+      else if (count <= 6) alertDisplay.innerText = statuses[2];
+      else alertDisplay.innerText = statuses[3];
+    }
+
+    // هروب زر الاعتراف
+    const btn = document.getElementById('runawayBtn');
+    const arena = document.getElementById('arena');
+
+    function dodge() {
+      const maxX = arena.clientWidth - btn.offsetWidth;
+      const maxY = arena.clientHeight - btn.offsetHeight;
+
+      const randomX = Math.max(0, Math.floor(Math.random() * maxX));
+      const randomY = Math.max(0, Math.floor(Math.random() * maxY));
+
+      btn.style.left = randomX + 'px';
+      btn.style.top = randomY + 'px';
+    }
+
+    btn.addEventListener('mouseover', dodge);
+    btn.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      dodge();
+    });
+
+    // قائمة ترقيعات الذبات
+    const excuses = [
+      "أنتم ما فهمتوها.. عميقة ترا!",
+      "هذي تنفهم بالذكاء بس، معليش.",
+      "ياخي حس الفكاهة عندكم ميت اليوم.",
+      "والله لو قلتها بقروب ثاني كان ماتوا ضحك.",
+      "كنت أستهبل ياخي مسوين دراما ليه؟",
+      "أهم شيء أنا ضحكت خلاص."
+    ];
+
+    function generateExcuse() {
+      const randomIndex = Math.floor(Math.random() * excuses.length);
+      document.getElementById('excuseText').innerText = `"${excuses[randomIndex]}"`;
+    }
+  </script>
+</body>
+</html>
